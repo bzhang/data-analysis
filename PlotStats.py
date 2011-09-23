@@ -43,25 +43,26 @@ for dir_name in dirs:
 	n_dele_pop = map(list,[[]]*n_gen)
 	n_bene_pop = map(list,[[]]*n_gen)
 	for file_name in files:
-		# if n_file > 0:
-			file = open(file_name,'rb')
-			print(file_name)
-			file.readline()
-			records = [record for record in file.read().split('\n') if record]
-			for i in range(0,n_gen):
-				# print(fitness_pop[i])
-				record = records[i].split()
-				fitness_pop[i].append(record[1])
-				mutator_strength_pop[i].append(record[3])
-				n_dele_pop[i].append(record[5])
-				n_bene_pop[i].append(record[7])
-			file.close()
-			# print(fitness_pop)
-			# n_file -= 1
+	# if n_file > 0:
+		file = open(file_name,'rb')
+		print(file_name)
+		file.readline()
+		records = [record for record in file.read().split('\n') if record]
+		for i in range(0,n_gen):
+			# print(fitness_pop[i])
+			record = records[i].split()
+			fitness_pop[i].append(record[1])
+			mutator_strength_pop[i].append(record[3])
+			n_dele_pop[i].append(record[5])
+			n_bene_pop[i].append(record[7])
+		file.close()
+		# print(fitness_pop)
+		# n_file -= 1
 	# counter -= 1		
 # else:
 # 	break
 	save_data()
+	os.chdir("..")
 
 print(fitness_pop[1])
 	
