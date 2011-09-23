@@ -151,7 +151,6 @@ for dir_name in dirs:
 	n_dele_5000_asex.append(n_dele_mean[5000-1])
 	n_bene_5000_asex.append(n_bene_mean[5000-1])
 		
-	
 	save_mean_CI()
 	os.chdir("..")
 	
