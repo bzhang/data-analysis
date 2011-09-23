@@ -26,7 +26,7 @@ def restore_data():
 data_path = "/Users/bingjun/Documents/MutatorModel/"
 output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
 os.chdir(data_path)
-dirs = glob.glob("MutCount_*_G5000*_MutaMR0.0_*")
+dirs = glob.glob("MutCount_*_G5000*")
 print(os.getcwd())
 print(len(dirs))
 
