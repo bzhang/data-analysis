@@ -156,7 +156,9 @@ for dir_name in dirs:
 	os.chdir("..")
 	
 # sort lists by base_mu
+base_mu = np.log10(base_mu)
 inds = np.argsort(base_mu)
+base_mu.sort()
 fitness_2000_asex = list(np.take(fitness_2000_asex,inds))
 fitness_3000_asex = list(np.take(fitness_3000_asex,inds))
 fitness_4000_asex = list(np.take(fitness_4000_asex,inds))
