@@ -31,7 +31,8 @@ def save_mean_CI():
 			}
 	pickle.dump(data, file)		
 	file.close()
-	
+
+
 def save_asex():
 	global fitness_2000_asex, mutator_strength_2000_asex, n_dele_2000_asex, n_bene_2000_asex
 	global fitness_3000_asex, mutator_strength_3000_asex, n_dele_3000_asex, n_bene_3000_asex
@@ -124,6 +125,14 @@ def list_mean_CI(nested_list):
 		CI_list.append(ci)
 	return mean_list, CI_list
 
+def list_mean_CI_nonnest(list):
+	mean_list, CI_list = [], []
+	mean, ci = mean_95CI(list)
+	mean_list.append(mean)
+	CI_list.append(ci)
+	return mean_list, CI_list
+	
+
 # data_path = "/Volumes/BigTwins/MutatorModelData/"
 # output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
 data_path = "/Users/bingjun/Documents/MutatorModel/"
@@ -131,12 +140,12 @@ output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
 os.chdir(data_path)
 
 restore_asex()
-f2k_asex_mean, f2k_asex_CI = list_mean_CI(fitness_2000_asex)
-f3k_asex_mean, f3k_asex_CI = list_mean_CI(fitness_3000_asex)
-f4k_asex_mean, f4k_asex_CI = list_mean_CI(fitness_4000_asex)
-f5k_asex_mean, f5k_asex_CI = list_mean_CI(fitness_5000_asex)
+# f2k_asex_mean, f2k_asex_CI = list_mean_CI_nonnest(fitness_2000_asex)
+# f3k_asex_mean, f3k_asex_CI = list_mean_CI_nonnest(fitness_3000_asex)
+# f4k_asex_mean, f4k_asex_CI = list_mean_CI_nonnest(fitness_4000_asex)
+# f5k_asex_mean, f5k_asex_CI = list_mean_CI_nonnest(fitness_5000_asex)
 
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.errorbar(np.log10(base_mu), f2k_asex_mean, yerr = f2k_asex_CI, fmt = '-')
+figure()
+# errorbar(np.log10(base_mu), fitness_2000_asex, yerr = f2k_asex_CI, fmt = '-')
+plt.plot(base_mu, fitness_2000_asex)
 plt.show()
