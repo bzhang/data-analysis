@@ -140,6 +140,7 @@ output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
 os.chdir(data_path)
 
 restore_asex()
+# TODO: plot into files
 figure()
 plt.plot(base_mu, fitness_2000_asex)
 plt.xlabel('Deleterious Mutation Rate')
