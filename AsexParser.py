@@ -120,16 +120,11 @@ for dir_name in dirs:
 	os.chdir(dir_name)
 	print(dir_name)
 	restore_data()
-
-	fitness_pop = string_to_float(fitness_pop)
-	mutator_strength_pop = string_to_float(mutator_strength_pop)
-	n_dele_pop = string_to_float(n_dele_pop)
-	n_bene_pop = string_to_float(n_bene_pop)
 			
-	fitness_mean, fitness_CI = list_mean_CI(fitness_pop)
-	mutator_strength_mean, mutator_strength_CI = list_mean_CI(mutator_strength_pop)
-	n_dele_mean, n_dele_CI = list_mean_CI(n_dele_pop)
-	n_bene_mean, n_bene_CI = list_mean_CI(n_bene_pop)
+	# fitness_mean, fitness_CI = list_mean_CI(fitness_pop)
+	# mutator_strength_mean, mutator_strength_CI = list_mean_CI(mutator_strength_pop)
+	# n_dele_mean, n_dele_CI = list_mean_CI(n_dele_pop)
+	# n_bene_mean, n_bene_CI = list_mean_CI(n_bene_pop)
 
 	fitness_2000_asex.append(fitness_mean[2000-1])
 	mutator_strength_2000_asex.append(mutator_strength_mean[2000-1])
@@ -151,7 +146,7 @@ for dir_name in dirs:
 	n_dele_5000_asex.append(n_dele_mean[5000-1])
 	n_bene_5000_asex.append(n_bene_mean[5000-1])
 		
-	save_mean_CI()
+	# save_mean_CI()
 	os.chdir("..")
 	
 # sort lists by base_mu
