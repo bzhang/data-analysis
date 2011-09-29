@@ -30,6 +30,21 @@ def save_mean_CI():
 	pickle.dump(data, file)		
 	file.close()
 	
+def restore_mean_CI():
+	global fitness_mean, fitness_CI, mutator_strength_mean, mutator_strength_CI
+	global n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI
+	file = open("state_mean_CI",'r')
+	data = pickle.load(file)
+	file.close()
+	fitness_mean = data['fitness_mean']
+	mutator_strength_mean = data['mutator_strength_mean']
+	n_dele_mean = data['n_dele_mean']
+	n_bene_mean = data['n_bene_mean']
+	fitness_CI = data['fitness_CI']
+	mutator_strength_CI = data['mutator_strength_CI']
+	n_dele_CI = data['n_dele_CI']
+	n_bene_CI = data['n_bene_CI']
+
 def save_asex():
 	global fitness_2000_asex, mutator_strength_2000_asex, n_dele_2000_asex, n_bene_2000_asex
 	global fitness_3000_asex, mutator_strength_3000_asex, n_dele_3000_asex, n_bene_3000_asex
@@ -95,10 +110,10 @@ def list_mean_CI(nested_list):
 		CI_list.append(ci)
 	return mean_list, CI_list
 
-# data_path = "/Volumes/BigTwins/MutatorModelData/"
-# output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
-data_path = "/Users/bingjun/Documents/MutatorModel/"
-output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
+data_path = "/Volumes/BigTwins/MutatorModelData/"
+output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
+# data_path = "/Users/bingjun/Documents/MutatorModel/"
+# output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
 os.chdir(data_path)
 dirs = glob.glob("MutCount_*_R0.0_*G5000*_MutaMR0.0_*")
 # dirs=glob.glob("MutCount*_R0.0_*_MutaMR0.0_*")
@@ -120,7 +135,7 @@ for dir_name in dirs:
 	os.chdir(dir_name)
 	print(dir_name)
 	restore_data()
-			
+	restore_mean_CI()		
 	# fitness_mean, fitness_CI = list_mean_CI(fitness_pop)
 	# mutator_strength_mean, mutator_strength_CI = list_mean_CI(mutator_strength_pop)
 	# n_dele_mean, n_dele_CI = list_mean_CI(n_dele_pop)

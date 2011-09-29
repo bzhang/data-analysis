@@ -29,6 +29,23 @@ def save_mean_CI():
 			}
 	pickle.dump(data, file)		
 	file.close()
+
+
+def restore_mean_CI():
+	global fitness_mean, fitness_CI, mutator_strength_mean, mutator_strength_CI
+	global n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI
+	file = open("state_mean_CI",'r')
+	data = pickle.load(file)
+	file.close()
+	fitness_mean = data['fitness_mean']
+	mutator_strength_mean = data['mutator_strength_mean']
+	n_dele_mean = data['n_dele_mean']
+	n_bene_mean = data['n_bene_mean']
+	fitness_CI = data['fitness_CI']
+	mutator_strength_CI = data['mutator_strength_CI']
+	n_dele_CI = data['n_dele_CI']
+	n_bene_CI = data['n_bene_CI']
+
 	
 def save_sex():
 	global fitness_2000_sex, mutator_strength_2000_sex, n_dele_2000_sex, n_bene_2000_sex
@@ -120,7 +137,7 @@ for dir_name in dirs:
 	os.chdir(dir_name)
 	print(dir_name)
 	restore_data()
-			
+	restore_mean_CI()		
 	# fitness_mean, fitness_CI = list_mean_CI(fitness_pop)
 	# mutator_strength_mean, mutator_strength_CI = list_mean_CI(mutator_strength_pop)
 	# n_dele_mean, n_dele_CI = list_mean_CI(n_dele_pop)
