@@ -44,8 +44,7 @@ def restore_mean_CI():
 	mutator_strength_CI = data['mutator_strength_CI']
 	n_dele_CI = data['n_dele_CI']
 	n_bene_CI = data['n_bene_CI']
-	return fitness_mean, fitness_CI, mutator_strength_mean, mutator_strength_CI, 
-		   n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI
+	return fitness_mean, fitness_CI, mutator_strength_mean, mutator_strength_CI, n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI
 
 	
 def save_sex():
