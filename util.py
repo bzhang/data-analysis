@@ -1,3 +1,11 @@
+#! /usr/local/bin/python
+import os, glob, struct, pickle
+import numpy as np
+from math import sqrt
+import re
+import matplotlib as plt
+import util
+
 def save_data():
 	global fitness_pop, mutator_strength_pop, n_dele_pop, n_bene_pop
 	file = open("state",'w')
