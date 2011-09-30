@@ -3,8 +3,8 @@ import os, glob, struct, pickle
 import numpy as np
 from math import sqrt
 import re
-import matplotlib as plt
-import util
+import matplotlib.pyplot as plt
+from util import *
 
 # data_path = "/Volumes/BigTwins/MutatorModelData/"
 # output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
@@ -25,9 +25,12 @@ for dir_name in dirs:
 	base_mu = float(mu.group('mu'))
 	n_gen = int(nG.group('nG'))
 	print(base_mu)
-	print(n_gen)
 	os.chdir(dir_name)
-	util.restore_mean_CI()
+	
+	fitness_mean, fitness_CI, mutator_strength_mean, mutator_strength_CI, 
+	n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI = restore_mean_CI()
+	
 	fig = plt.figure()
-	errorbar(range(1,n_gen+1),fitness_mean,fitness_CI,fmt='ro',ecolor='gray',capsize='0')
+	plt.errorbar(range(1,n_gen+1),fitness_mean,fitness_CI,fmt='ro',ecolor='gray',capsize='0')
+	plt.title("DeleMu = base_mu")
 	fig.savefig(dir_name.png)
