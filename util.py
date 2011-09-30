@@ -4,10 +4,9 @@ import numpy as np
 from math import sqrt
 import re
 import matplotlib as plt
-import util
 
-def save_data():
-	global fitness_pop, mutator_strength_pop, n_dele_pop, n_bene_pop
+def save_data(fitness_pop, mutator_strength_pop, n_dele_pop, n_bene_pop):
+	# global fitness_pop, mutator_strength_pop, n_dele_pop, n_bene_pop
 	file = open("state",'w')
 	data = {'fitness_pop':fitness_pop, 
 			'mutator_strength_pop':mutator_strength_pop, 
@@ -16,9 +15,10 @@ def save_data():
 	pickle.dump(data, file)		
 	file.close()
 
-def save_mean_CI():
-	global fitness_mean, fitness_CI, mutator_strength_mean, mutator_strength_CI
-	global n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI
+def save_mean_CI(fitness_mean, fitness_CI, mutator_strength_mean, 
+				 mutator_strength_CI,n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI):
+	# global fitness_mean, fitness_CI, mutator_strength_mean, mutator_strength_CI
+	# global n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI
 	file = open("state_mean_CI",'w')
 	data = {'fitness_mean':fitness_mean, 
 			'mutator_strength_mean':mutator_strength_mean, 

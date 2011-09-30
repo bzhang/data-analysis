@@ -3,12 +3,13 @@ import os, glob, struct, pickle
 import numpy as np
 from math import sqrt
 import re
-import util
+# import util
+from util import *
 
-data_path = "/Volumes/BigTwins/MutatorModelData/"
-output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
-# data_path = "/Users/bingjun/Documents/MutatorModel/"
-# output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
+# data_path = "/Volumes/BigTwins/MutatorModelData/"
+# output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
+data_path = "/Users/bingjun/Documents/MutatorModel/"
+output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
 os.chdir(data_path)
 dirs = glob.glob("MutCount_*_G5000*")
 print(os.getcwd())
@@ -45,20 +46,20 @@ for dir_name in dirs:
 	# counter -= 1		
 # else:
 # 	break
+
 	fitness_pop = string_to_float(fitness_pop)
 	mutator_strength_pop = string_to_float(mutator_strength_pop)
 	n_dele_pop = string_to_float(n_dele_pop)
 	n_bene_pop = string_to_float(n_bene_pop)	
-	util.save_data()
+	save_data(fitness_pop, mutator_strength_pop, n_dele_pop, n_bene_pop)
 	
 	fitness_mean, fitness_CI = list_mean_CI(fitness_pop)
 	mutator_strength_mean, mutator_strength_CI = list_mean_CI(mutator_strength_pop)
 	n_dele_mean, n_dele_CI = list_mean_CI(n_dele_pop)
 	n_bene_mean, n_bene_CI = list_mean_CI(n_bene_pop)
-	util.save_mean_CI()
+	save_mean_CI(fitness_mean, fitness_CI, mutator_strength_mean, 
+				 mutator_strength_CI,n_dele_mean, n_dele_CI, n_bene_mean, n_bene_CI)
 	
 	os.chdir("..")
-
-print(fitness_pop[1])
 	
 	
