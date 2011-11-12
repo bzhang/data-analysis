@@ -1,7 +1,7 @@
 #! /usr/local/bin/python
 import os, glob, struct, pickle
 import numpy as np
-from math import sqrt
+from math import *
 import re
 import matplotlib as plt
 
@@ -84,6 +84,7 @@ def restore_data():
 	mutator_strength_pop = data['mutator_strength_pop']
 	n_dele_pop = data['n_dele_pop']
 	n_bene_pop = data['n_bene_pop']
+	return fitness_pop, mutator_strength_pop, n_dele_pop, n_bene_pop
 
 def string_to_float(nested_list):
 	result = map(list,[[]]*len(nested_list))	
@@ -119,4 +120,8 @@ def list_mean_CI_nonnest(list):
 	CI_list.append(ci)
 	return mean_list, CI_list
 
-
+def log_list(list, base):
+	result = []
+	for i in list:
+		result.append(log(i,base))
+	return result
