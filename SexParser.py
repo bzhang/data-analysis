@@ -5,12 +5,12 @@ from math import sqrt
 import re
 import util
 
-data_path = "/Volumes/BigTwins/MutatorModelData/"
-output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
-# data_path = "/Users/bingjun/Documents/MutatorModel/"
-# output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
+# data_path = "/Volumes/BigTwins/MutatorModelData/"
+# output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
+data_path = "/Users/bingjun/Documents/MutatorModel/"
+output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
 os.chdir(data_path)
-dirs = glob.glob("MutCount_*_R1.0_*G5000*_MutaMR0.0_*")
+dirs = glob.glob("MutCount_*_R1.0_*G5000_N500*_MutaMR0.0_*")
 # dirs=glob.glob("MutCount*_R0.0_*_MutaMR0.0_*")
 print(os.getcwd())
 print(len(dirs))

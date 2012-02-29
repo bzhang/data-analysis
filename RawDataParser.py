@@ -6,12 +6,12 @@ import re
 # import util
 from util import *
 
-data_path = "/Volumes/BigTwins/MutatorModelData/"
-output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
-# data_path = "/Users/bingjun/Documents/MutatorModel/"
-# output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
+# data_path = "/Volumes/BigTwins/MutatorModelData/"
+# output_path = "/Volumes/BigTwins/Dropbox/MutatorModel/Results/"
+data_path = "/Users/bingjun/Documents/MutatorModel/"
+output_path = "/Users/bingjun/Dropbox/MutatorModel/Results/"
 os.chdir(data_path)
-dirs = glob.glob("MutCount_M0.0_R0.0_G5000_N500_BeneMR1.0E-4_DeleMR0.01_BeneE1.01_DeleE0.99_MutStr2_MutaMR0.01_Prob2M0.5_MutaE2")
+dirs = glob.glob("MutCount_M0.0_R0.0_G5000_N500_BeneMR1.0E-4_DeleMR0.01_BeneE1.01_DeleE0.99_MutStr2_InitMutaMR0.0_EvolMutaMR0.01_StartEvol*")
 print(os.getcwd())
 print(len(dirs))
 

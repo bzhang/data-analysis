@@ -75,6 +75,40 @@ def save_sex():
 	pickle.dump(data, file)		
 	file.close()
 
+def restore_sex():
+	global fitness_2000_sex, mutator_strength_2000_sex, n_dele_2000_sex, n_bene_2000_sex
+	global fitness_3000_sex, mutator_strength_3000_sex, n_dele_3000_sex, n_bene_3000_sex
+	global fitness_4000_sex, mutator_strength_4000_sex, n_dele_4000_sex, n_bene_4000_sex
+	global fitness_5000_sex, mutator_strength_5000_sex, n_dele_5000_sex, n_bene_5000_sex
+	global base_mu
+	file = open("state_sex",'r')
+	data = pickle.load(file)
+	file.close()
+	fitness_2000_sex = data['fitness_2000_sex']
+	fitness_3000_sex = data['fitness_3000_sex']
+	fitness_4000_sex = data['fitness_4000_sex']
+	fitness_5000_sex = data['fitness_5000_sex']
+	base_mu = data['base_mu']
+	return fitness_2000_sex,fitness_3000_sex,fitness_4000_sex,fitness_5000_sex,base_mu
+
+
+def restore_asex():
+	global fitness_2000_asex, mutator_strength_2000_asex, n_dele_2000_asex, n_bene_2000_asex
+	global fitness_3000_asex, mutator_strength_3000_asex, n_dele_3000_asex, n_bene_3000_asex
+	global fitness_4000_asex, mutator_strength_4000_asex, n_dele_4000_asex, n_bene_4000_asex
+	global fitness_5000_asex, mutator_strength_5000_asex, n_dele_5000_asex, n_bene_5000_asex
+	global base_mu
+	file = open("state_asex",'r')
+	data = pickle.load(file)
+	file.close()
+	fitness_2000_asex = data['fitness_2000_asex']
+	fitness_3000_asex = data['fitness_3000_asex']
+	fitness_4000_asex = data['fitness_4000_asex']
+	fitness_5000_asex = data['fitness_5000_asex']
+	base_mu = data['base_mu']
+	return fitness_2000_asex,fitness_3000_asex,fitness_4000_asex,fitness_5000_asex,base_mu
+
+
 def restore_data():
 	global fitness_pop, mutator_strength_pop, n_dele_pop, n_bene_pop
 	file = open("state",'r')
